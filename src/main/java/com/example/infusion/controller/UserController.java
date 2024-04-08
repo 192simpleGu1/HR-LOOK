@@ -7,10 +7,7 @@ import com.example.infusion.dto.req.*;
 import com.example.infusion.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -20,6 +17,11 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @GetMapping("/test1111")
+    public  Result test(){
+        return Results.success();
+    }
 
     //用户名和密码登录接口
     @RequestMapping("/infusion/login")

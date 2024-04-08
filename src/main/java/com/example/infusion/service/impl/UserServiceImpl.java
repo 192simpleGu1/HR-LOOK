@@ -63,6 +63,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         if(StringUtils.isEmpty(loginReq.getPassword())){
             throw new ServiceException(CustomizeCode.PASSWORD_NOT_NULL);
         }
+
+        System.out.println(MD5Utils.MD5Upper(loginReq.getPassword(),salt));
         Wrapper<User> user = Wrappers.lambdaQuery(User.class)
                 .eq(User::getPhone,loginReq.getPhone())
                 .eq(User::getPassword,MD5Utils.MD5Upper(loginReq.getPassword(),salt));
